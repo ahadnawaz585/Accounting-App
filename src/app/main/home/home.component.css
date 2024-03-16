@@ -1,0 +1,178 @@
+
+body,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* Header Styles */
+/* header {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+} */
+
+.logo img {
+    max-height: 70px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Main Content Styles */
+.main-content {
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+p {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.options {
+    margin-top : 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.options a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #1875d9;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.options a:hover{
+    background-color: #007bff;
+}
+/* Dialog Styles */
+/* Dialog Styles */
+.welcome-dialog {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    animation: fadeOut 4s forwards; /* Apply the fade-out animation */
+}
+
+.dialog-content {
+    text-align: center;
+}
+
+button {
+    background-color: #1875d9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #007bff;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;    
+        background-color: #000000;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+    }
+
+    .menu li {
+        color: black;
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    li:first-child {
+        margin-top: 10px;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .options {
+        flex-direction: column;
+    }
+
+    .options a {
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,219 @@
+/* Reset default margin and padding */
+body, h1, h2, p, ul, ol, li, form, fieldset, legend, input, select, textarea, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Apply a background color and set a font for the entire page */
+  body {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* White background */
+    color: #333; /* Text color */
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Set the body to cover the full viewport height */
+    overflow: hidden;/* Prevent scrolling */
+  }
+  .accountant-select{
+   width: 300px;
+   margin-left: 25px;
+  }
+  /* Style the container */
+  .container {
+    /* Removed max-width and set width to 100% */
+    width: 100%;
+    height: 100%; /* Set the container to cover the full viewport height */
+    /* padding: 20px; */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0; /* No border radius for full-screen */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Style the header */
+  h1 {
+    font-size: 24px;
+  
+    margin: 10px ;
+    margin-left: 20px;
+    color: #1875d9; /* Blue color */
+  }
+  
+  /* Style the form container */
+  .form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Style form rows and items */
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  .form-item {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  /* Style labels */
+  label {
+    font-weight: bold;
+    margin-left: 10px;
+    color: #333; /* Text color */
+  }
+  
+  /* Style input and select elements */
+  /* Target the specified input elements and remove the outline */
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea,.filter-container {
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    margin-top: 5px;
+    color: #333; /* Text color */
+    outline: none; /* Remove the default outline on focus */
+  }
+  .filter-container {
+    width:20%
+  }
+  textarea {
+    height: 40px;
+  }
+  
+  /* Style the "Add" button */
+ .update, .add {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #007bff; /* Blue color */
+  }
+  
+ .update , .add:hover {
+    background-color: #007bff;
+    color: white; /* Darker blue on hover */
+  }
+  
+  /* Style the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead{
+    width: 100;
+  }
+  /* Style table headers */
+  th {
+    background-color: #1875d9; /* Blue color */
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+  }
+  option {
+    height:20px;
+    font-size: large;
+  
+  }
+  /* Style table cells */
+  td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Style alternating rows */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  .edit {
+    background-color: #007bff;
+    text-align: center;
+    color: white ;
+    width: 70px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+.edit:hover {
+    background-color: #002fff;
+}
+
+.delete {
+    background-color: rgba(255, 17, 0, 0.8);
+    color: white ;
+    text-align: center;
+    width: 70px;
+    height: 35px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    border: 1px solid white;
+}
+
+.delete:hover {
+    background-color: red;
+}
+  /* Make the form and table responsive */
+  @media (max-width: 600px) {
+    .form-container {
+      width: 80%;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  
+    .form-row {
+      flex-direction: column;
+    }
+  
+    .form-item {
+      flex: 1;
+      margin-right: 0;
+    }
+  
+    table {
+      width: 100%;
+      /* border-collapse: separate; */
+      border-spacing: 0;
+      border: none; /* Remove the table border */
+      margin-top: 10px;
+      overflow: hidden;
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    th, td {
+      padding: 15px;
+      border: none; /* Remove cell borders */
+      text-align: left; /* Adjust alignment */
+    }
+  
+    /* Style for each table row (card-like) */
+    tr {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  }

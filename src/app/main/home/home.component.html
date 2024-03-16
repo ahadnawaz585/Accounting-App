@@ -1,0 +1,18 @@
+<div class="header-container">
+    <section class="main-content">
+        <h1>Welcome to Our Accounting System</h1>
+        <p>Your Trusted Partner for Financial Management</p>
+        <div class="options">
+            <a href="/accountant">Accountant</a>
+            <a href="/account">Accounts</a>
+            <a href="/ledger">Ledger</a>
+        </div>
+    </section>
+</div>
+<!-- Welcome Dialog -->
+<div class="welcome-dialog" *ngIf="showWelcomeDialog">
+    <div class="dialog-content">
+        <p>Welcome, you are logged in as {{ userName }}</p>
+        <!-- <button (click)="closeWelcomeDialog()">Cancel</button> -->
+    </div>
+</div>

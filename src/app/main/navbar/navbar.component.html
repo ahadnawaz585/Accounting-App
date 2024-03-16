@@ -1,0 +1,62 @@
+<nav *ngIf="isLoggedIn()" class="navbar" [ngClass]="{'responsive': isResponsive}">
+  <!-- Logo Link -->
+  <a routerLink="/" class="active">
+    <img class="logo-image" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png" alt="LOGO" />
+  </a>
+
+  <!-- Courses Dropdown -->
+  <div class="dropdown" [ngClass]="{'show': showCoursesDropdown}">
+    <button routerLink="/accountant" class="btn" (click)="toggleDropdown('courses')">
+      Accountant <i class="fa fa-caret-down"></i>
+    </button>
+    <!-- Dropdown Menu (Optional) -->
+    <!-- <div class="dropdown-menu">
+      <a routerLink="/accountantform">Add Accountant</a>
+      <a routerLink="/accountant">View Accountant</a>
+    </div> -->
+  </div>
+
+  <!-- More Dropdown -->
+  <div class="dropdown" [ngClass]="{'show': showMoreDropdown}">
+    <button routerLink="/account" class="btn" (click)="toggleDropdown('more')">
+      Account <i class="fa fa-caret-down"></i>
+    </button>
+    <!-- Dropdown Menu (Optional) -->
+    <div class="dropdown-menu">
+      <a href="#">Item 1</a>
+      <a href="#">Item 2</a>
+      <a href="#">Item 3</a>
+    </div>
+  </div>
+
+  <!-- Services Dropdown -->
+  <div class="dropdown" [ngClass]="{'show': showServicesDropdown}">
+    <button routerLink="/ledger"  class="btn" (click)="toggleDropdown('services')">
+      Ledger <i class="fa fa-caret-down"></i>
+    </button>
+    <!-- Dropdown Menu (Optional) -->
+    <div class="dropdown-menu">
+      <a href="#">Service 1</a>
+      <a href="#">Service 2</a>
+      <a href="#">Service 3</a>
+    </div>
+  </div>
+
+  <!-- Profile Dropdown -->
+  <div class="dropdown" [ngClass]="{'show': showProfileDropdown}">
+    <button class="btn" (click)="toggleDropdown('profile')">
+      Profile <i class="fa fa-caret-down"></i>
+    </button>
+    <!-- Dropdown Menu -->
+    <div class="dropdown-menu">
+      <a href="#">Edit Profile</a>
+      <a (click)="logout()">Logout</a>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Icon -->
+  <a href="javascript:void(0);" style="font-size: 15px;" class="icon" (click)="toggleResponsiveMenu()">&#9776;</a>
+</nav>
+
+<!-- Router Outlet for Content -->
+<router-outlet></router-outlet>

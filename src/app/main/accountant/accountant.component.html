@@ -1,0 +1,14 @@
+<h1>{{ isEditMode ? 'Update' : 'Add' }} Accountants</h1>
+<a routerLink="/accountant">View Accountants</a>
+<a routerLink="/">Go Back</a>
+<div class="header-container">
+    <div class="table-page">
+        <div id="formContainer">
+            <form id="accountForm" (submit)="onSubmit()">
+                <input placeholder="Code" type="number" id="code" name="code" required [(ngModel)]="accountantCode">
+                <input placeholder="Name" type="text" id="name" name="name" required [(ngModel)]="accountantName">
+                <button type="submit">{{ isEditMode ? 'Update' : 'Add' }}</button><br>
+            </form>
+        </div>
+    </div>
+</div>

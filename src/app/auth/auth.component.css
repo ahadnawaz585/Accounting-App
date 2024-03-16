@@ -1,0 +1,61 @@
+
+.container {
+ 
+  width: 80%; /* Use a percentage width to make it responsive */
+  max-width: 400px; /* Set a maximum width to control the container's size */
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgb(226, 218, 218);
+  text-align: center;
+  margin-top: 100px; /* Center the content within the container */
+}
+.logo-image {
+  width: 150px; /* Adjust the width to your desired size */
+  height: auto; /* Maintain the aspect ratio */
+  margin: 0; /* Adjust the margin as needed */
+}
+h2{
+  color: #333;
+}
+
+input[type="text"], input[type="password"] {
+  margin-top: 20px;
+  width: 100%; /* Make the input fields take up the full width of the container */
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+
+button {
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: white;
+  color: #007bff;
+  border: 1px solid #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.success-message{
+  color:green;
+}
+button:hover {
+  background-color: #007bff;
+  color: white;
+}
+.error-message{
+  color: red;
+}
+
+p{
+  margin-left: 10px;
+  text-decoration: none;
+  color: #007bff;
+  cursor: pointer;
+}

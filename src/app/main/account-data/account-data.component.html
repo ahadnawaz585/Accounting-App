@@ -1,0 +1,61 @@
+<div class="container">
+  <h1>Accounts:</h1>
+  <div class="accountant-select">
+    <select id="accountant" name="accountant" [(ngModel)]="selectedAccountant" (change)="applyFilter()">
+      <option value="" disabled>Select an Accountant</option>
+      <option *ngFor="let accountant of accountantData" [value]="accountant.name">{{ accountant.name }}</option>
+    </select>
+  </div>
+<div class="form-container">
+  <div class="form-row">
+    <div class="form-item">
+      <input type="number" id="code" name="code" required placeholder="Code" [(ngModel)]="addFormData.code">
+    </div>
+    <div class="form-item">
+      <input type="text" id="name" name="name" required placeholder="Name" [(ngModel)]="addFormData.name">
+    </div>
+    <div class="form-item">
+      <select id="type" name="type" required [(ngModel)]="addFormData.type" >
+        <option value="" disabled>Select an account type</option>
+        <option *ngFor="let accountType of accountTypes" [value]="accountType">{{ accountType }}</option>
+      </select>
+    </div>
+    <!-- Use *ngIf to conditionally show the button based on edit mode -->
+    <button class="add" *ngIf="!isEditMode" (click)="addItem()">Add</button>
+    <button class="update" *ngIf="isEditMode" (click)="saveEditedItem()">Update</button>
+  </div>
+</div>
+  <div class="filter-container">
+    <label for="filter">Filter by Type: </label>
+    <select id="filter" name="filter" [(ngModel)]="filterType" (change)="applyFilter()">
+      <option value="">All</option>
+      <option value="Expenses">Expenses</option>
+      <option value="Revenue">Revenue</option>
+      <option value="Assets">Assets</option>
+      <option value="COGS">COGS</option>
+      <option *ngFor="let subtype of accountSubtypes" [value]="subtype">{{ subtype }}</option>
+    </select>
+
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th (click)="sortData('code')">Code▼</th>
+        <th (click)="sortData('name')">Name▼</th>
+        <th (click)="sortData('type')">Type</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredItems || items; let i = index">
+        <td>{{ item.code }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.type }}</td>
+        <td>
+          <button class="edit" (click)="editItem(i)">Edit</button>
+          <button class="delete" (click)="deleteItem(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

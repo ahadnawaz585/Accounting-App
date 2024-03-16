@@ -1,0 +1,92 @@
+<div class="container">
+  <h1>Ledgers:</h1>
+  <div class="accountant-select">
+    <select id="accountant" name="accountant" [(ngModel)]="selectedAccountant" (change)="filterAccounts()">
+      <option value="" disabled>Select an Accountant</option>
+      <option *ngFor="let accountant of accountantData" [value]="accountant.name">{{ accountant.name }}</option>
+    </select>
+  </div>
+
+
+  <div class="form-container">
+    <div class="form-row">
+      <div class="form-item">
+        <select id="account" name="account" required [(ngModel)]="account">
+          <option value="" disabled>Select an account</option>
+          <option *ngFor="let accountOption of accountOptions" [value]="accountOption">{{ accountOption }}</option>
+        </select>
+      </div>
+      <div class="form-item">
+        <input type="text" id="memo" name="memo" required placeholder="Memo" [(ngModel)]="memo">
+      </div>
+      <div class="form-item">
+        <input type="date" id="entryDate" name="entryDate" required [(ngModel)]="entryDate">
+      </div>
+
+      <div class="form-item">
+        <input type="number" id="amount" name="amount" required placeholder="Amount" [(ngModel)]="amount">
+      </div>
+      <button class="add" (click)="addTransaction(selectedAccountant, account, memo, amount, entryDate)">Add Transaction</button>
+    </div>
+  </div>
+
+
+  <button class="filter-toggle" (click)="toggleFilterForm()">▼Filters</button>
+  <div class="filter-container" *ngIf="filterFormOpen">
+    <div class="filter-row">
+      <div class="filter-item">
+        <label for="filter">Filter by Account:</label>
+        <select id="filter" name="filter" [(ngModel)]="selectedFilter" (change)="filterEntries()">
+          <option value="">All</option>
+          <option *ngFor="let accountOption of accountOptions" [value]="accountOption">{{ accountOption }}</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <label for="date">Filter by Date:</label>
+        <input type="date" id="date" name="date" [(ngModel)]="selectedDate" (change)="filterEntries()">
+      </div>
+      <div class="filter-item">
+        <button class="reset" (click)="resetFilters()">Reset Filters</button>
+      </div>
+      <!-- <div id="searchAccountant" class="filter-item">
+        <input  type="text" id="search" name="search" [(ngModel)]="searchTerm" placeholder="Search by Accountant">
+      </div>
+      <div class="filter-item">
+      <button class="search-button" (click)="searchEntries()">Search</button>
+      </div> -->
+    </div>
+    </div> 
+    
+    <button class="print-button" (click)="printLedger()">Print Ledger</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Memo▼</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop through ledger entries here -->
+      <!-- Loop through filtered ledger entries here -->
+      <tr *ngFor="let entry of filteredLedger; let i = index">
+        <td>{{ entry.account }}</td>
+        <td>{{ entry.memo }}</td>
+        <td>{{ entry.date | date:'MM-dd-yyyy' }}</td>
+        <td>{{ entry.amount }}</td>
+        <td>
+          <button class="edit" (click)="editEntry(i)">Edit</button>
+          <button class="delete" (click)="deleteEntry(i)">Delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  <div class="total-amount">
+    Total Amount: {{ calculateTotalAmount() | currency:'PKR':'symbol-narrow' }}
+  </div>
+
+</div>

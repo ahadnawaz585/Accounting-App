@@ -1,0 +1,24 @@
+
+<div class="container">
+  <img class="logo-image" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png" alt="LOGO" />
+  <div class="auth-container">
+    <h2>{{ mode === 'login' ? 'Login' : 'Sign Up' }}</h2>
+    <form #authForm="ngForm" (ngSubmit)="mode === 'signup' ? onSubmit() : onLogin(username.value, password.value)">
+      <input placeholder="Username" type="text" id="username" name="username" required [(ngModel)]="userData.username"
+        #username>
+      <input placeholder="Email" *ngIf="mode === 'signup'" type="text" id="email" name="email" required
+        [(ngModel)]="userData.email">
+<input placeholder="Password" type="password" id="password" [maxLength]="8" name="password" required [(ngModel)]="userData.password" #password>
+<input placeholder="Confirm Password" *ngIf="mode === 'signup'" [maxLength]="8" type="password" id="confirmPassword" name="confirmPassword" required [(ngModel)]="userData.confirmPassword">
+
+      <button type="submit" (click)="authForm.ngSubmit.emit()">{{ mode === 'login' ? 'Login' : 'Sign Up' }}</button>
+    </form>
+    <p class="toggle-mode" (click)="toggleMode()">{{ mode === 'login' ? "Don't have an account? Sign Up" : "Already have an account? Login" }}</p>
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="showSuccessMessage" class="success-message">
+    Account created successfully.
+  </div>
+</div>

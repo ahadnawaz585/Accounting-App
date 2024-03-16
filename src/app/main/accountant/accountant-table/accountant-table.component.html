@@ -1,0 +1,27 @@
+<body>
+  <div class="header-container"></div>
+  <h1>Accountants Table</h1>
+  <a routerLink="/accountantform">Add New</a>
+  <a routerLink="/">Go Back</a>
+  <div id="tableContainer">
+      <table>
+          <thead>
+              <tr>
+                  <th>Accountant Code</th>
+                  <th>Name</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let accountant of accountants">
+                  <td>{{ accountant.code }}</td>
+                  <td>{{ accountant.name }}</td>
+                  <td>
+                    <button class="edit" (click)="onEdit({ code: accountant.code, name: accountant.name })">Edit</button>
+                      <button class="delete" (click)="onDelete(accountant)">Delete</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</body>
